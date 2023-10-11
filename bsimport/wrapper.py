@@ -2,6 +2,7 @@
 # bsimport/wrapper.py
 
 import requests
+import typer
 
 from typing import Any, Dict, List, NamedTuple, Optional
 
@@ -171,6 +172,12 @@ class Bookstack():
 
         if len(name) > 255:
             return BResponse(NAME_TOO_LONG_ERROR, "")
+
+        if len(text) == 0:
+            typer.secho(
+                f"Page text is empty",
+                fg=typer.colors.YELLOW
+            )
 
         url = f"{self._url}/pages"
         page = {

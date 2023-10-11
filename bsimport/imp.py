@@ -161,13 +161,12 @@ class Importer():
         if len(content) == 0:
             return IResponse(EMPTY_FILE_ERROR, "")
 
-        #import pdb
-        #pdb.set_trace()
-
         name, text, tags = self._parse_file(content)
 
         if not name:
             name = file_path.stem
+
+        name = name.title() # Capitalize the page name
 
         if not tags:
             tags = None

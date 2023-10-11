@@ -159,7 +159,7 @@ def import_single_file(importer: imp.Importer, path: Path):
 
     if book_id == -1:
         typer.secho(
-            "Use 'bsimport list_books' to get a list of all "
+            "Use 'bsimport list-books' to get a list of all "
             "accessible books and their ID."
         )
         raise typer.Exit()
@@ -262,7 +262,7 @@ def import_subdir(
     :rtype: str
     """
 
-    name = path.stem
+    name = path.stem.title()
 
     typer.secho(f"Creating the chapter '{name}'")
 
@@ -319,7 +319,7 @@ def import_dir(importer: imp.Importer, path: Path):
     :type path: Path
     """
 
-    name = path.stem
+    name = path.stem.title()
 
     typer.secho(f"Creating the book '{name}'")
 
