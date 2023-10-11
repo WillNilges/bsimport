@@ -1,4 +1,5 @@
 # virtual envs
+venv/
 .venv/
 win-venv/
 # vscode files

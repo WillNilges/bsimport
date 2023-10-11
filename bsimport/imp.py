@@ -107,7 +107,8 @@ class Importer():
         tags, end = self._parse_front_matter(content)
         start = 0 if (end == -1) else (end + 1)
 
-        text_start = -1
+        # FIXME (willnilges): This is why the tables weren't importing
+        text_start = start
         name = ""
         for count, line in enumerate(content[start:]):
             if line.startswith('# '):
@@ -159,6 +160,9 @@ class Importer():
 
         if len(content) == 0:
             return IResponse(EMPTY_FILE_ERROR, "")
+
+        #import pdb
+        #pdb.set_trace()
 
         name, text, tags = self._parse_file(content)
 
